@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import CanvasJSReact from './assets/canvasjs.react';
+//var CanvasJSReact = require('./assets/canvasjs.react');
+//var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {	
+  render() {
+    const options = {
+      title: {
+        text: "Basic Column Chart in React"
+      },
+      data: [{				
+                type: "column",
+                dataPoints: [
+                    { label: "Apple",  y: 10  },
+                    { label: "Orange", y: 15  },
+                    { label: "Banana", y: 25  },
+                    { label: "Mango",  y: 30  },
+                    { label: "Grape",  y: 28  },
+                    { label: "Strawberry",  y: 21 },
+                    { label: "Lemon",  y: 51 },
+                    { label: "Jaca",  y: 18 },
+                    { label: "Uva",  y: 24 },
+                    { label: "Melancia",  y: 81 },
+                    { label: "Maracujá",  y: 28 },
+                    { label: "Romã",  y: 8 },
+                    { label: "Jabuticaba",  y: 42 }
+                ]
+       }]
+   }
+		
+   return (
+      <div>
+        <CanvasJSChart options = {options}
+            /* onRef = {ref => this.chart = ref} */
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
